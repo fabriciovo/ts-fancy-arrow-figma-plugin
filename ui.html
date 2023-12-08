@@ -1,15 +1,15 @@
 <h2>Create Arrows</h2>
 <button id="create">Create</button>
-<button id="cancel">Cancel</button>
+<button id="reset">Reset</button>
 <script>
+  const getContainer = document.getElementById("container")
+  document.getElementById('create').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'create-arrows', container: getContainer } }, '*')
+  }
 
-document.getElementById('create').onclick = () => {
-  parent.postMessage({ pluginMessage: { type: 'create-arrows' } }, '*')
-}
-
-document.getElementById('cancel').onclick = () => {
-  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
-}
+  document.getElementById('reset').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'remove-arrows' } }, '*')
+  }
 
 
 </script>
